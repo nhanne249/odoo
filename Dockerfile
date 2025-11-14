@@ -8,7 +8,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential pkg-config gcc \
     libldap2-dev libsasl2-dev libssl-dev \
     libxml2-dev libxslt1-dev zlib1g-dev libpq-dev \
+    ca-certificates \
  && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /etc/secrets
+
+ENV PGSSLROOTCERT=/etc/secrets/ca.pem \
+    ODOO_DB_SSLMODE=verify-full
 
 WORKDIR /app
 
@@ -24,3 +30,4 @@ CMD python odoo-bin \
     --db_host "$ODOO_DB_HOST" \
     --db_port "$ODOO_DB_PORT" \
     --db_sslmode "$ODOO_DB_SSLMODE"
+    -v /etc/secrets/ca.pem:/etc/secrets/ca.pem:ro
