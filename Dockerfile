@@ -23,7 +23,7 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . .
 CMD python odoo-bin \
-    -d "$defaultdb" \
+    -d "defaultdb" \
     -i all \
     --db_user "$ODOO_DB_USER" \
     -w "$ODOO_DB_PASSWORD" \
