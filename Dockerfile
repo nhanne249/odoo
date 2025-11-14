@@ -30,4 +30,4 @@ CMD python odoo-bin \
     --db_host "$ODOO_DB_HOST" \
     --db_port "$ODOO_DB_PORT" \
     --db_sslmode "$ODOO_DB_SSLMODE" \
-    --db_maxconn "64"
+    --db_maxconn "20"
