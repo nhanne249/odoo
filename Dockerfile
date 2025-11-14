@@ -29,5 +29,4 @@ CMD python odoo-bin \
     -w "$ODOO_DB_PASSWORD" \
     --db_host "$ODOO_DB_HOST" \
     --db_port "$ODOO_DB_PORT" \
-    --db_sslmode "$ODOO_DB_SSLMODE" \
-    -v /etc/secrets/ca.pem:/etc/secrets/ca.pem:ro
+    --db_sslmode "$ODOO_DB_SSLMODE"
