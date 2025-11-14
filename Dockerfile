@@ -17,7 +17,6 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . .
 CMD python odoo-bin \
-    -c /app/odoo.conf \
     -d "$ODOO_DB_NAME" \
     -i all \
     --db_user "$ODOO_DB_USER" \
