@@ -22,4 +22,5 @@ COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . .
-CMD python odoo-bin -d defaultdb -u base --db_user "$ODOO_DB_USER" -w "$ODOO_DB_PASSWORD" --db_host "$ODOO_DB_HOST" --db_port "$ODOO_DB_PORT" --db_sslmode "$ODOO_DB_SSLMODE" --db_maxconn "120"
+CMD python odoo-bin -d defaultdb -u base --db_user "$ODOO_DB_USER" -w "$ODOO_DB_PASSWORD" --db_host "$ODOO_DB_HOST" --db_port "$ODOO_DB_PORT" --db_sslmode "$ODOO_DB_SSLMODE" --db_maxconn "120" --limit-time-cpu "600" --limit-time-real "1800"
+
